@@ -10,7 +10,8 @@ tags:
 
 # useEffect
 
-이 글은 Dan Abramov의 [useEffect 완벽가이드](https://overreacted.io/ko/a-complete-guide-to-useeffect/)를 읽고 정리한 글입니다{: .notice--info}
+이 글은 Dan Abramov의 [useEffect 완벽가이드](https://overreacted.io/ko/a-complete-guide-to-useeffect/)를 읽고 정리한 글입니다
+{: .notice--info}
 
 ## useEffect 이해하기 위한 기본 지식
 
