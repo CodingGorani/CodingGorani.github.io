@@ -8,7 +8,7 @@ tags:
   - useEffect
 ---
 
-# useEffect
+# useEffect 제대로 이해하기
 
 이 글은 [React공식문서](https://ko.reactjs.org/docs/hooks-effect.html)와 Dan Abramov의 [useEffect 완벽가이드](https://overreacted.io/ko/a-complete-guide-to-useeffect/)를 읽고 정리한 글입니다. 질문 또는 수정이 필요한 내용이 있으면 댓글로 남겨주세요!
 {: .notice--info}
@@ -144,10 +144,26 @@ function FriendStatus(props) {
 
 ## useEffect 두번째 인자의 의미\_ Effect 건너 뛰기
 
-**useEffect는 두번째 인자의 배열안에 있는 값들이 리렌더시 변함이 없다면 리엑트로 하여금 effect를 건너뛰게 만든다.**
+useEffect의 두 번째 오는 인자를 의존성 배열 "deps"라고 한다.
 
-훅의 기본 동작방식을 이해 한다면 모든 렌더링시에 effect가 적용되거나 정리된다는 것을 알 수 있다.
+**이 값이 리렌더시 변함이 없다면 리엑트로 하여금 effect를 건너뛰게 만든다.**
 
-그러나 만약 effects안에서 사용되는 props나 state의 값이 변화가 없다면 굳이 다시 effect를 호출할 필요가 없다.
+훅의 기본 동작방식을 이해한다면 모든 렌더링시에 effect가 적용되거나 정리된다는 것을 알 수 있다.
 
-이것은 때때로 성능 저하를 일으킬 수도 있다. 이러한 문제는 useEffect의 두번째 인자의 **의존성 배열**을 명시함으로써 해결할 수 있다.
+이것은 때때로 성능 저하를 일으킬 수도 있다. 만약 effects안에서 사용되는 props나 state의 값이 변화가 없다면 굳이 다시 effect를 호출할 필요가 없다.
+
+하지만 원래 리액트는 effect 함수 안을 볼 수 없기 때문에(스코프) 그 함수를 호출하지 않는 이상, effect안에서 일어나는 변화를 알 수 없다.
+
+```js
+const oldEffect = () => {
+  return "a";
+};
+const newEffect = () => {
+  return "a";
+};
+//여기서 oldEffect() === newEffect() 지만 호출하지 않으면 같은지 알 수 없다
+```
+
+의존성 배열에 명시해주는 값들은 리액트에게 '이 외의 값들은 사용하지 않겠다'는 약속과도 같다.
+
+[-> 이어서 계속](https://codinggorani.github.io/til/about_useEffect_2)
