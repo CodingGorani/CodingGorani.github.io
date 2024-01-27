@@ -100,10 +100,10 @@ author:
   email: "tjr2922@gmail.com"
   links:
     - label: "Medium"
-      icon: "fa-brands fa-medium"
+      icon: "fab fa-medium-m"
       url: "https://medium.com/@tjr2922"
     - label: "X"
-      icon: "fa-brands fa-x-twitter"
+      icon: "fab fa-twitter"
       url: "https://x.com/nomadmetamartin?s=21"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
